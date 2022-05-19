@@ -18,6 +18,9 @@ class ImageAssets {
   static const String contactUsIc = "$IMAGE_PATH/contact_us_ic.svg";
   static const String inviteFriendsIc = "$IMAGE_PATH/invite_friends_ic.svg";
   static const String logoutIc = "$IMAGE_PATH/logout_ic.svg";
+
+  static const String iconFacebook = "$IMAGE_PATH/icon_facebook.png";
+  static const String iconGoogle = "$IMAGE_PATH/icon_google.png";
 }
 
 class JsonAssets {

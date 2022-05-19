@@ -13,7 +13,7 @@ TextStyle _getTextStyle(
 // regular style
 
 TextStyle getRegularStyle(
-    {double fontSize =  FontSize.s12, required Color color}) {
+    {double fontSize = FontSize.s12, required Color color}) {
   return _getTextStyle(
       fontSize, FontConstants.fontFamily, FontWeightManager.regular, color);
 }
@@ -48,6 +48,7 @@ TextStyle getMediumStyle(
   return _getTextStyle(
       fontSize, FontConstants.fontFamily, FontWeightManager.medium, color);
 }
+
 
 
 
