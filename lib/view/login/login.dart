@@ -1,16 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:list_tile_switch/list_tile_switch.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop_meme/view/resources/assets_manager.dart';
 import 'package:shop_meme/view/resources/color_manager.dart';
 import 'package:shop_meme/view/resources/dark_theme_provider.dart';
 import 'package:shop_meme/view/resources/locale_keys.dart';
-import 'package:shop_meme/view/resources/styles_manager.dart';
 import 'package:shop_meme/view/resources/valid_data_manager.dart';
 import 'package:shop_meme/view/resources/values_manager.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:shop_meme/view/widget/button_primary.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -24,13 +21,6 @@ class _LoginState extends State<Login> {
   String _emailAddress = '';
   String _password = '';
   final _formKey = GlobalKey<FormState>();
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    // getAppLanguage();
-  }
 
   @override
   void dispose() {
@@ -51,6 +41,10 @@ class _LoginState extends State<Login> {
     final themeChange = Provider.of<DarkThemeProvider>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+       leading:  Icon(Icons.arrow_back_ios_new,),
+
+      ),
       body: Padding(
         padding: EdgeInsets.all(AppSize.s12),
         child: Column(
@@ -71,44 +65,34 @@ class _LoginState extends State<Login> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: TextFormField(
-                            key: const ValueKey('email'),
-                            validator: (value) =>ValidDator.validatorEmail(value!)
-                                  ? null
-                                  : LocaleKeys.invalidEmail.tr()
-                            ,
-                            textInputAction: TextInputAction.next,
-                            onEditingComplete: () => FocusScope.of(context)
-                                .requestFocus(_passwordFocusNode),
-                            keyboardType: TextInputType.emailAddress,
-                            decoration: InputDecoration(
-                              labelText: LocaleKeys.emailHint.tr(),
-                            ),
-                            onSaved: (value) {
-                              _emailAddress = value!;
-                            },
-                          ),
+                        TextFieldData(
+                            valueKey: 'email',
+                            validator: ValidDator.validatorEmail,
+                            strForcusNode: _passwordFocusNode,
+                            labelText: LocaleKeys.emailHint.tr(),
+                            getValue: (value) {
+                              _emailAddress = value;
+                            }),
+                        SizedBox(
+                          height: AppSizeHeight.h2,
                         ),
-                        SizedBox(height: AppSizeHeight.h2,),
                         Padding(
                           padding: const EdgeInsets.all(2.0),
                           child: TextFormField(
                             key: const ValueKey('Password'),
                             validator: (value) =>
-                                ValidDator.validatorPassword(value!)
+                                ValidDator.checkPassword(value!)
                                     ? null
                                     : LocaleKeys.passwordError.tr(),
                             keyboardType: TextInputType.emailAddress,
                             focusNode: _passwordFocusNode,
+                            obscureText: true,
                             decoration: InputDecoration(
                               labelText: LocaleKeys.password.tr(),
                             ),
                             onSaved: (value) {
                               _password = value!;
                             },
-                            onEditingComplete: _submitForm,
                           ),
                         ),
                         Row(
@@ -123,27 +107,14 @@ class _LoginState extends State<Login> {
                               Icons.arrow_forward_outlined,
                               color: Theme.of(context).primaryColor,
                             ),
-                            SizedBox(width: 15),
+                            const SizedBox(width: 15),
                           ],
                         ),
                         SizedBox(
                           height: AppSizeHeight.h4,
                         ),
-                        MaterialButton(
-                            elevation: 3,
-                            padding: EdgeInsets.symmetric(
-                                horizontal:
-                                    MediaQuery.of(context).size.width / 3),
-                            color: ColorManager.primary,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Text(
-                              LocaleKeys.login,
-                              style: Theme.of(context).textTheme.subtitle2,
-                            ).tr(),
-                            onPressed: () {
-                              _submitForm();
-                            })
+                        ButtonPrimary(
+                            label: LocaleKeys.login, onPressed: _submitForm)
                       ],
                     ))),
             Flexible(
@@ -154,7 +125,7 @@ class _LoginState extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        'Or sign up with social account',
+                        LocaleKeys.signupWithSocialAccount.tr(),
                         style: Theme.of(context).textTheme.subtitle1,
                       ),
                       SizedBox(
@@ -211,6 +182,41 @@ class _LoginState extends State<Login> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class TextFieldData extends StatelessWidget {
+  final String valueKey;
+  // final Function(String value) validator;
+  final String? Function(String?)? validator;
+  final FocusNode strForcusNode;
+  final String labelText;
+  final Function(String value) getValue;
+  const TextFieldData({
+    Key? key,
+    required this.valueKey,
+    required this.validator,
+    required this.strForcusNode,
+    required this.labelText,
+    required this.getValue,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(2.0),
+      child: TextFormField(
+          key: ValueKey(valueKey),
+          validator: validator,
+          textInputAction: TextInputAction.next,
+          onEditingComplete: () =>
+              FocusScope.of(context).requestFocus(strForcusNode),
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            labelText: labelText,
+          ),
+          onSaved: (d) => getValue(d!)),
     );
   }
 }

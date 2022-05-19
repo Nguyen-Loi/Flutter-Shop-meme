@@ -31,5 +31,6 @@
   "about" : "About",
   "changeLanguage" : "Change language",
   "contactUs" : "Contact us",
-  "logout" : "Đăng Logout"
+  "logout" : "Logout",
+  "signupWithSocialAccount": "Or sign up with social account"
 }

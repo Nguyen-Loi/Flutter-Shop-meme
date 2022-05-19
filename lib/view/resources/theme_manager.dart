@@ -17,7 +17,6 @@ class Styles {
       indicatorColor: isDarkTheme ? Color(0xff0E1D36) : ColorManager.white,
       buttonColor: isDarkTheme ? Color(0xff3B3B3B) : ColorManager.primary,
       hintColor: isDarkTheme ? Colors.grey.shade300 : ColorManager.grey,
-      highlightColor: isDarkTheme ? Color(0xff372901) : ColorManager.green,
       hoverColor: isDarkTheme ? Color(0xff3A3A3B) : ColorManager.black,
       focusColor: isDarkTheme ? Color(0xff0B2512) : ColorManager.black,
       disabledColor: ColorManager.grey,
@@ -43,7 +42,12 @@ class Styles {
               primary: ColorManager.primary,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(AppSize.s12)))),
-
+appBarTheme: AppBarTheme(
+   iconTheme:isDarkTheme? IconThemeData(color: Colors.black):IconThemeData(color: ColorManager.black),
+  backgroundColor:isDarkTheme ? ColorManager.whiteBackground:ColorManager.whiteBackground,
+       elevation: 0,
+       titleTextStyle: TextStyle(color: isDarkTheme ? Colors.white: ColorManager.black),
+),
       // Text theme
       textTheme: TextTheme(
           headline1: getSemiBoldStyle(
@@ -65,6 +69,7 @@ class Styles {
 
       inputDecorationTheme: InputDecorationTheme(
         contentPadding: EdgeInsets.all(AppSize.s8),
+        hoverColor: ColorManager.white,
         // hint style
         hintStyle: getRegularStyle(color: ColorManager.grey, fontSize: FontSize.s14),
         // label style
@@ -75,9 +80,9 @@ class Styles {
         labelStyle: getMediumStyle(color: ColorManager.grey),
         // error style
         errorStyle: getRegularStyle(color: ColorManager.red),
-        
         // error border
         errorBorder: OutlineInputBorder(
+
             borderSide:
                 BorderSide(color: ColorManager.error, width: AppSize.s1_5),),
         // focused error border
@@ -86,8 +91,9 @@ class Styles {
                 BorderSide(color: ColorManager.primary, width: AppSize.s1_5),
             ),
       )
-
+ 
     
     );
+  
   }
 }

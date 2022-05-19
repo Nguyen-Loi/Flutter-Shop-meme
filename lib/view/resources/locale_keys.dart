@@ -33,5 +33,6 @@ abstract class  LocaleKeys {
   static const changeLanguage = 'changeLanguage';
   static const contactUs = 'contactUs';
   static const logout = 'logout';
+  static const signupWithSocialAccount = 'signupWithSocialAccount';
 
 }

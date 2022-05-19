@@ -31,5 +31,6 @@
   "about" : "Về chúng tôi",
   "changeLanguage" : "Thay đổi ngôn ngữ",
   "contactUs" : "Liên hệ",
-  "logout" : "Đăng xuất"
+  "logout" : "Đăng xuất",
+  "signupWithSocialAccount": "Đăng nhập với nền tảng"
 }
