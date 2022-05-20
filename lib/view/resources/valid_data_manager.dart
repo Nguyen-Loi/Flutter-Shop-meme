@@ -18,4 +18,12 @@ class ValidDator {
 
   static String? validatorEmail(String? value) =>
       ValidDator.checkEmail(value!) ? null : LocaleKeys.invalidEmail.tr();
+
+  static String? validatorPassword(String? value) =>
+      ValidDator.checkPassword(value!) ? null : LocaleKeys.passwordError.tr();
+
+  static String? validatorPasswordMatch(String? value, String? value2) =>
+      value==value2
+          ? null
+          : LocaleKeys.confirmPasswordInvalid.tr();
 }

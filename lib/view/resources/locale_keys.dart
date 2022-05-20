@@ -33,6 +33,8 @@ abstract class  LocaleKeys {
   static const changeLanguage = 'changeLanguage';
   static const contactUs = 'contactUs';
   static const logout = 'logout';
+  static const confirmPassword = 'confirmPassword';
+  static const confirmPasswordInvalid = 'confirmPasswordInvalid';
   static const signupWithSocialAccount = 'signupWithSocialAccount';
 
 }

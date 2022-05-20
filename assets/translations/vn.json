@@ -19,7 +19,7 @@
   "profilePicture" : "Hình ảnh cá nhân",
   "photoGalley" : "Lấy ảnh từ thư mục",
   "photoCamera" : "Lấy ảnh từ camera",
-  "haveAccount" : "Bạn chưa có tài khoản?",
+  "haveAccount" : "Bạn đã có tài khoản?",
   "home" : "Home",
   "search" : "Search",
   "bag" : "Bag",
@@ -32,5 +32,7 @@
   "changeLanguage" : "Thay đổi ngôn ngữ",
   "contactUs" : "Liên hệ",
   "logout" : "Đăng xuất",
+  "confirmPassword" : "Xác nhận mật khẩu",
+  "confirmPasswordInvalid" : "Mật khẩu không trùng khớp",
   "signupWithSocialAccount": "Đăng nhập với nền tảng"
 }

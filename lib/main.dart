@@ -5,6 +5,7 @@ import 'package:shop_meme/model/l10n.dart';
 import 'package:shop_meme/view/login/login.dart';
 import 'package:shop_meme/view/resources/dark_theme_provider.dart';
 import 'package:shop_meme/view/resources/theme_manager.dart';
+import 'package:shop_meme/view/sign_up/sign_up.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
@@ -57,7 +58,7 @@ class _MyAppState extends State<MyApp> {
               locale: context.locale,
               title: 'Flutter Demo',
               debugShowCheckedModeBanner: false,
-              home: Login(),
+              home: SignUp(),
             );
           }));
     });

@@ -23,9 +23,9 @@ class ButtonPrimary extends StatelessWidget {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           child: Text(
-            label,
+            label.toUpperCase(),
             style: Theme.of(context).textTheme.subtitle2,
-          ).tr(),
+          ),
           onPressed: onPressed),
     );
   }

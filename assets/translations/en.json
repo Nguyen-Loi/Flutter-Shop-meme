@@ -8,7 +8,7 @@
   "login" : "Login",
   "forgetPassword" : "Forget your password",
   "registerText" : "Register",
-  "register" : "Register",
+  "register" : "Sign up",
   "loading" : "Loading",
   "retry_again" : "retry again",
   "ok" : "Ok",
@@ -19,7 +19,7 @@
   "profilePicture" : "Profile picture",
   "photoGalley" : "Photo from galley",
   "photoCamera" : "Photo from camera",
-  "haveAccount" : "You don't have account?",
+  "haveAccount" : "Already have an account?",
   "home" : "Home",
   "search" : "Search",
   "bag" : "Bag",
@@ -32,5 +32,7 @@
   "changeLanguage" : "Change language",
   "contactUs" : "Contact us",
   "logout" : "Logout",
-  "signupWithSocialAccount": "Or sign up with social account"
+  "confirmPassword" : "Confirm password",
+  "confirmPasswordInvalid" : "Password do not match",
+  "signupWithSocialAccount": "Or login with social account"
 }

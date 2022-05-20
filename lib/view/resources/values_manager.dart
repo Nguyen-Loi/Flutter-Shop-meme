@@ -10,6 +10,7 @@ class AppSizeWidth {
 }
 
 class AppSizeHeight {
+  static double h1 = 1.0.h;
   static double h2 = 2.0.h;
   static double h4 = 4.0.h;
   static double h6 = 6.0.h;
