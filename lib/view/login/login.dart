@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_meme/view/resources/assets_manager.dart';
-import 'package:shop_meme/view/resources/color_manager.dart';
 import 'package:shop_meme/view/resources/dark_theme_provider.dart';
 import 'package:shop_meme/view/resources/locale_keys.dart';
+import 'package:shop_meme/view/resources/resable_function.dart';
+import 'package:shop_meme/view/resources/routes_manager.dart';
 import 'package:shop_meme/view/resources/valid_data_manager.dart';
 import 'package:shop_meme/view/resources/values_manager.dart';
 import 'package:shop_meme/view/widget/button_primary.dart';
@@ -29,22 +29,18 @@ class _LoginState extends State<Login> {
     super.dispose();
   }
 
-  void _submitForm() {
-    final isValid = _formKey.currentState!.validate();
-    FocusScope.of(context).unfocus();
-    if (isValid) {
-      _formKey.currentState!.save();
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final themeChange = Provider.of<DarkThemeProvider>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back_ios_new,
+        leading: GestureDetector(
+          onTap: () =>
+              Navigator.of(context).pushReplacementNamed(Routes.signUpRoute),
+          child: const Icon(
+            Icons.arrow_back_ios_new,
+          ),
         ),
       ),
       body: Padding(
@@ -73,7 +69,7 @@ class _LoginState extends State<Login> {
                         Padding(
                           padding: const EdgeInsets.all(2.0),
                           child: TextFormField(
-                              key: ValueKey('Email'),
+                              key: const ValueKey('Email'),
                               validator: ValidDator.validatorEmail,
                               textInputAction: TextInputAction.next,
                               onEditingComplete: () => FocusScope.of(context)
@@ -91,36 +87,45 @@ class _LoginState extends State<Login> {
                         Padding(
                           padding: const EdgeInsets.all(2.0),
                           child: TextFormField(
-                              key: ValueKey('Password'),
+                              key: const ValueKey('Password'),
                               validator: ValidDator.validatorPassword,
                               keyboardType: TextInputType.emailAddress,
                               focusNode: _passwordFocusNode,
                               obscureText: true,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                   labelText: LocaleKeys.password),
                               onSaved: (d) => _password = d!),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            const SizedBox(width: 10),
-                            Text(LocaleKeys.forgetPassword,
-                                    style:
-                                        Theme.of(context).textTheme.subtitle1)
-                                .tr(),
-                            Icon(
-                              Icons.arrow_forward_outlined,
-                              color: Theme.of(context).primaryColor,
-                            ),
-                            const SizedBox(width: 15),
-                          ],
+                        GestureDetector(
+                          onTap: () => Navigator.of(context)
+                              .pushReplacementNamed(Routes.forgotPasswordRoute),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              const SizedBox(width: 10),
+                              Text(LocaleKeys.forgetPassword,
+                                      style:
+                                          Theme.of(context).textTheme.subtitle1)
+                                  .tr(),
+                              Icon(
+                                Icons.arrow_forward_outlined,
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              const SizedBox(width: 15),
+                            ],
+                          ),
                         ),
                         SizedBox(
                           height: AppSizeHeight.h4,
                         ),
                         ButtonPrimary(
                             label: LocaleKeys.login.tr(),
-                            onPressed: _submitForm)
+                            onPressed: () => ResableFuntions.submitForm(
+                                ctx: context,
+                                fKey: _formKey,
+                                function: () => Navigator.of(context)
+                                    .pushReplacementNamed(
+                                        Routes.bottomBarRoute)))
                       ],
                     ))),
             Flexible(

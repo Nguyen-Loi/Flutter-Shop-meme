@@ -4,4 +4,6 @@ Theme.of(context).textTheme.subtitle2
 
 Theme.of(context).cardColor
 
-      resizeToAvoidBottomInset: false,
+resizeToAvoidBottomInset: false,
+
+ Navigator.of(context).pushReplacementNamed(Routes.mainRoute);

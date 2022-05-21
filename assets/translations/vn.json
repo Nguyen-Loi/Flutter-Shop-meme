@@ -13,6 +13,7 @@
   "retry_again" : "Thử lại",
   "ok" : "Xác nhận",
   "emailHint" : "Email",
+  "linkToEmail" : "Hãy nhập email của bạn và sẽ nhận được một đường dẫn để bạn có được mật khẩu mới",
   "invalidEmail" : "Email không hợp lệ",
   "resetPassword" : "Đổi mật khẩu",
   "success" : "Thành công",
@@ -34,5 +35,7 @@
   "logout" : "Đăng xuất",
   "confirmPassword" : "Xác nhận mật khẩu",
   "confirmPasswordInvalid" : "Mật khẩu không trùng khớp",
-  "signupWithSocialAccount": "Đăng nhập với nền tảng"
+  "signupWithSocialAccount": "Đăng nhập với nền tảng",
+  "noRouteFound": "Không tìm thấy dữ liệu",
+  "send" : "Gửi"
 }

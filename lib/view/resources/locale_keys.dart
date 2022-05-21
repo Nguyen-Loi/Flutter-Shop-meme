@@ -15,6 +15,7 @@ abstract class  LocaleKeys {
   static const retry_again = 'retry_again';
   static const ok = 'ok';
   static const emailHint = 'emailHint';
+  static const linkToEmail = 'linkToEmail';
   static const invalidEmail = 'invalidEmail';
   static const resetPassword = 'resetPassword';
   static const success = 'success';
@@ -36,5 +37,7 @@ abstract class  LocaleKeys {
   static const confirmPassword = 'confirmPassword';
   static const confirmPasswordInvalid = 'confirmPasswordInvalid';
   static const signupWithSocialAccount = 'signupWithSocialAccount';
+  static const noRouteFound = 'noRouteFound';
+  static const send = 'send';
 
 }

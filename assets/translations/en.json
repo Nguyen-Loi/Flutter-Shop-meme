@@ -6,13 +6,14 @@
   "passwordError" : "Invalid password",
   "password" : "Password",
   "login" : "Login",
-  "forgetPassword" : "Forget your password",
+  "forgetPassword" : "Forgot your password",
   "registerText" : "Register",
   "register" : "Sign up",
   "loading" : "Loading",
   "retry_again" : "retry again",
   "ok" : "Ok",
   "emailHint" : "Email",
+  "linkToEmail" : "Please, enter your email address. You will receive a link to create a new password via email.",
   "invalidEmail" : "Invalid email",
   "resetPassword" : "Reset password",
   "success" : "Success",
@@ -34,5 +35,7 @@
   "logout" : "Logout",
   "confirmPassword" : "Confirm password",
   "confirmPasswordInvalid" : "Password do not match",
-  "signupWithSocialAccount": "Or login with social account"
+  "signupWithSocialAccount": "Or login with social account",
+  "noRouteFound": "No route found",
+  "send" : "Send"
 }

@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  card_swiper: ^2.0.3
   cupertino_icons: ^1.0.2
   easy_localization: ^3.0.0
   flutter:
@@ -59,7 +60,6 @@ flutter:
     - assets/images/icon_facebook.png
     - assets/translations/
 
- 
   fonts:
     - family: Montserrat
       fonts:

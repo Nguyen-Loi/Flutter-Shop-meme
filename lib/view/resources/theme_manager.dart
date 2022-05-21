@@ -9,9 +9,12 @@ import 'package:shop_meme/view/resources/values_manager.dart';
 class Styles {
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
+      dividerColor:  isDarkTheme ? Colors.white : ColorManager.grey,
       scaffoldBackgroundColor:
           isDarkTheme ? Colors.black : ColorManager.whiteBackground,
+          bottomAppBarColor: Colors.yellow,
       primaryColor: isDarkTheme ? Colors.black : ColorManager.primary,
+      unselectedWidgetColor:isDarkTheme? ColorManager.whiteBackground:ColorManager.black,
       backgroundColor:
       isDarkTheme ? Colors.grey.shade700 : ColorManager.whiteBackground,
       indicatorColor: isDarkTheme ? Color(0xff0E1D36) : ColorManager.white,
@@ -52,8 +55,8 @@ appBarTheme: AppBarTheme(
       textTheme: TextTheme(
           headline1: getSemiBoldStyle(
               color: ColorManager.black, fontSize: FontSize.s26),
-          // headline2: getRegularStyle(
-          //     color: ColorManager.white, fontSize: FontSize.s16),
+          headline2: getSemiBoldStyle(
+              color: ColorManager.black, fontSize: FontSize.s22),
           // headline3:
           //     getBoldStyle(color: ColorManager.primary, fontSize: FontSize.s16),
           // headline4: getRegularStyle(
