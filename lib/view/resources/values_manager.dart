@@ -7,6 +7,7 @@ class AppSizeWidth {
   static double w16 = 16.0.w;
   static double w18 = 18.0.w;
   static double w20 = 20.0.w;
+  static double w100 = 100.0.w;
 }
 
 class AppSizeHeight {
@@ -20,6 +21,8 @@ class AppSizeHeight {
   static double h16 = 16.0.h;
   static double h18 = 18.0.h;
   static double h20 = 20.0.h;
+  static double h27 = 27.0.h;
+  static double h50 = 50.0.h;
 }
 
 class AppSize {

@@ -39,5 +39,10 @@ abstract class  LocaleKeys {
   static const signupWithSocialAccount = 'signupWithSocialAccount';
   static const noRouteFound = 'noRouteFound';
   static const send = 'send';
+  static const sale = 'sale';
+  static const viewAll = 'viewAll';
+  static const descSale = 'descSale';
+  static const neww = 'new';
+  static const descNew = 'descNew';
 
 }

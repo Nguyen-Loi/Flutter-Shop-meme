@@ -37,5 +37,10 @@
   "confirmPasswordInvalid" : "Password do not match",
   "signupWithSocialAccount": "Or login with social account",
   "noRouteFound": "No route found",
-  "send" : "Send"
+  "send" : "Send",
+  "sale": "Sale",
+  "viewAll": "View all",
+  "descSale": "Super sale",
+  "neww": "New",
+  "descNew": "Latest clothes"
 }

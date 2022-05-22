@@ -12,7 +12,8 @@ class Styles {
       dividerColor:  isDarkTheme ? Colors.white : ColorManager.grey,
       scaffoldBackgroundColor:
           isDarkTheme ? Colors.black : ColorManager.whiteBackground,
-          bottomAppBarColor: Colors.yellow,
+          //OpScafford
+        textSelectionHandleColor:  isDarkTheme ? ColorManager.whiteBackground: ColorManager.black,
       primaryColor: isDarkTheme ? Colors.black : ColorManager.primary,
       unselectedWidgetColor:isDarkTheme? ColorManager.whiteBackground:ColorManager.black,
       backgroundColor:
@@ -31,6 +32,8 @@ class Styles {
       buttonTheme: Theme.of(context).buttonTheme.copyWith(
           colorScheme: isDarkTheme ? ColorScheme.dark() : ColorScheme.light()),
       accentColor: ColorManager.primary,
+
+
 
        cardTheme: CardTheme(
           color: ColorManager.white,

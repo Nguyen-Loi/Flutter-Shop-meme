@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_meme/model/l10n.dart';
+import 'package:shop_meme/model/product_provider.dart';
 import 'package:shop_meme/view/forgot_password/forgot_password.dart';
 import 'package:shop_meme/view/login/login.dart';
 import 'package:shop_meme/view/resources/dark_theme_provider.dart';
@@ -47,9 +48,12 @@ class _MyAppState extends State<MyApp> {
     return Sizer(builder: (context, orientation, deviceType) {
       return MultiProvider(
           providers: [
-            ChangeNotifierProvider(create: (_) {
-              return themeChangeProvider;
-            })
+            ChangeNotifierProvider(create: (_) =>
+             themeChangeProvider
+            ),
+            ChangeNotifierProvider(create: (_) =>
+             ProductProvider()
+            ),
           ],
           child:
               Consumer<DarkThemeProvider>(builder: (context, themeData, child) {
@@ -61,7 +65,7 @@ class _MyAppState extends State<MyApp> {
               locale: context.locale,
               title: 'Flutter Demo',
               debugShowCheckedModeBanner: false,
-              home: Login(),
+              home: BottomBarScreen(),
             );
           }));
     });

@@ -37,5 +37,10 @@
   "confirmPasswordInvalid" : "Mật khẩu không trùng khớp",
   "signupWithSocialAccount": "Đăng nhập với nền tảng",
   "noRouteFound": "Không tìm thấy dữ liệu",
-  "send" : "Gửi"
+  "send" : "Gửi",
+  "sale": "Giảm giá",
+  "viewAll": "Xem tất cả",
+  "descSale": "Top giảm giá trong mùa này",
+  "neww": "Mới",
+  "descNew": "Những trang phục mới nhất"
 }
