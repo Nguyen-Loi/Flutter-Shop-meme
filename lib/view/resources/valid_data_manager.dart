@@ -23,7 +23,20 @@ class ValidDator {
       ValidDator.checkPassword(value!) ? null : LocaleKeys.passwordError.tr();
 
   static String? validatorPasswordMatch(String? value, String? value2) =>
-      value==value2
-          ? null
-          : LocaleKeys.confirmPasswordInvalid.tr();
+      value == value2 ? null : LocaleKeys.confirmPasswordInvalid.tr();
+
+  static String convertProductName(
+          {required int length, required String nameProduct}) =>
+      nameProduct.length > length
+          ? nameProduct.substring(0, length) + '...'
+          : nameProduct;
+
+  static String caculateDiscount(
+      {required double price, required int discount}) {
+    if (discount != 0) {
+      int temp =  100-discount;
+      return (price * (temp/100)).toString();
+    }
+    return price.toString();
+  }
 }

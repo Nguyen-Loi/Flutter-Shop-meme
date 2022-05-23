@@ -8,9 +8,14 @@ class ColorManager {
   static Color grey = HexColor.fromHex("#9B9B9B");
   static Color red = HexColor.fromHex("#F01F0E");
   static Color green = HexColor.fromHex("#2AA952");
+  static Color whiteCard = HexColor.fromHex("#E4E4E4");
+
+
+  //Widget
+  static Color yellow = Colors.yellow;
 
   // new colors
-  static Color darkPrimary = HexColor.fromHex("#d17d11");
+  static Color darkPrimary = HexColor.fromHex("#1E1F28");
   static Color grey1 = HexColor.fromHex("#707070");
   static Color grey2 = HexColor.fromHex("#797979");
   // static Color white = HexColor.fromHex("#FFFFFF");

@@ -16,8 +16,8 @@ class TitleDescHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: AppSizeHeight.h50,
+    return Padding(
+      padding: EdgeInsets.only( left: AppSize.s12, right: AppSize.s12 ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

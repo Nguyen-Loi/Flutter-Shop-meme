@@ -42,7 +42,9 @@ abstract class  LocaleKeys {
   static const sale = 'sale';
   static const viewAll = 'viewAll';
   static const descSale = 'descSale';
-  static const neww = 'new';
+  static const neww = 'neww';
   static const descNew = 'descNew';
+  static const sold = 'sold';
+  static const descSold = 'descSold';
 
 }

@@ -7,8 +7,8 @@ import 'package:shop_meme/view/resources/values_manager.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:shop_meme/app/extension.dart';
 
-class TopSaleHome extends StatelessWidget {
-  const TopSaleHome({Key? key}) : super(key: key);
+class TopSoledHome extends StatelessWidget {
+  const TopSoledHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,21 +51,22 @@ class TopSaleHome extends StatelessWidget {
                     itemSize: AppSize.s14,
                     maxRating: 5,
                     itemCount: 5,
-                    ignoreGestures: true,
+                     ignoreGestures: true,
+                    tapOnlyMode: true,
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
                       color: ColorManager.yellow,
-                    ), onRatingUpdate: (double value) {  },
-                  
+                    ),
+                    onRatingUpdate: (double value) {
                       
-                    
+                    },
                   ),
                   Text(' (${productModel.numberRating})')
                 ],
               ),
               Text(
                 ValidDator.convertProductName(
-                    length: 13, nameProduct: productModel.title),
+                    length: 25, nameProduct: productModel.title),
                 style: Theme.of(context).textTheme.headline3,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
@@ -108,9 +109,7 @@ class TopSaleHome extends StatelessWidget {
                     ),
                   
                     ),
-                    Positioned(
-                      
-                      child: Container(      
+                    Positioned(child: Container(      
                        alignment: Alignment.center,   
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),

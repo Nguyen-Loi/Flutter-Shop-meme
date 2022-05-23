@@ -17,6 +17,7 @@ class ProductProvider with ChangeNotifier {
         price: 3400000,
         title: 'Samsung Galaxy A10s',
         isFavorite: true,
+        numberRating: 4,
         imageUrl:
             'https://images-na.ssl-images-amazon.com/images/I/51ME-ADMjRL._AC_SL1000_.jpg',
         discountPrice: 0,
@@ -55,6 +56,7 @@ class ProductProvider with ChangeNotifier {
         id: '6',
         price: 13499000,
         title: 'iPhone 12 Pro',
+        numberRating: 5,
         isFavorite: true,
         imageUrl:
             'https://m.media-amazon.com/images/I/71cSV-RTBSL.jpg',
@@ -65,6 +67,7 @@ class ProductProvider with ChangeNotifier {
         id: '7',
         price: 15000000,
         title: 'iPhone 12 Pro Max',
+        numberRating: 1,
         imageUrl:
             'https://m.media-amazon.com/images/I/71XXJC7V8tL._FMwebp__.jpg',
         description:

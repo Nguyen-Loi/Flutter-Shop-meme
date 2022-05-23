@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_meme/model/product.dart';
 import 'package:shop_meme/view/resources/color_manager.dart';
+import 'package:shop_meme/view/resources/locale_keys.dart';
 import 'package:shop_meme/view/resources/valid_data_manager.dart';
 import 'package:shop_meme/view/resources/values_manager.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:shop_meme/app/extension.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-class TopSaleHome extends StatelessWidget {
-  const TopSaleHome({Key? key}) : super(key: key);
+class NewProductHome extends StatelessWidget {
+  const NewProductHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,14 +53,14 @@ class TopSaleHome extends StatelessWidget {
                     itemSize: AppSize.s14,
                     maxRating: 5,
                     itemCount: 5,
-                    ignoreGestures: true,
+                     ignoreGestures: true,
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
                       color: ColorManager.yellow,
-                    ), onRatingUpdate: (double value) {  },
-                  
+                    ),
+                    onRatingUpdate: (double value) {
                       
-                    
+                    },
                   ),
                   Text(' (${productModel.numberRating})')
                 ],
@@ -67,8 +69,6 @@ class TopSaleHome extends StatelessWidget {
                 ValidDator.convertProductName(
                     length: 13, nameProduct: productModel.title),
                 style: Theme.of(context).textTheme.headline3,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
               ),
               Text(
                 productModel.price.toVND(),
@@ -93,13 +93,15 @@ class TopSaleHome extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: Theme.of(context).scaffoldBackgroundColor,
+                          
                            boxShadow: [
             BoxShadow(
                 color: ColorManager.grey,
                 blurRadius: 2.0,
                 spreadRadius: 0.0,
                 offset: Offset(2.0, 2.0), // shadow direction: bottom right
-            )]
+            )
+        ],
                         ),
                         
                         child:  productModel.isFavorite==true?Icon(
@@ -114,11 +116,12 @@ class TopSaleHome extends StatelessWidget {
                        alignment: Alignment.center,   
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                               color: ColorManager.primary,   
+                               color: ColorManager.darkPrimary,   
+                               
                             ),
                             width: AppSize.s50,
                             height: AppSize.s25,
-                            child: Text('-${productModel.discountPrice}%', style: Theme.of(context).textTheme.subtitle2,),
+                            child: Text(LocaleKeys.neww.tr(), style: Theme.of(context).textTheme.subtitle2,),
                           ))
         ],
       ),
