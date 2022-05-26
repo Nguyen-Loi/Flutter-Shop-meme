@@ -44,5 +44,12 @@
   "neww": "Mới",
   "descNew": "Những trang phục mới nhất",
   "sold": "Mua nhiều nhất",
-  "descSold": "Những sản phẩm được ủng hộ nhiều nhất"
+  "descSold": "Những sản phẩm được ủng hộ nhiều nhất",
+  "favorite": "Yêu thích",
+  "filters": "Filters",
+  "filterPopular": "Phổ biến",
+  "filterNewest": "Mới nhất",
+  "filterCustomerReview": "Khách hàng bình luận",
+  "filterPriceLowestToHigh": "Theo giá từ thấp đến cao",
+  "filterPriceHightestToLow": "Theo giá từ cao đến thấp"
 }

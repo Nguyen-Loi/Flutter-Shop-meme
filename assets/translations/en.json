@@ -42,7 +42,14 @@
   "viewAll": "View all",
   "descSale": "Super sale",
   "neww": "New",
-  "descNew": "Latest clothes",
+  "descNew": "Newsest",
   "sold": "Hot",
-  "descSold": "The most popular clothes"
+  "descSold": "The most popular clothes",
+  "favorite": "Favorites",
+  "filters": "Filters",
+  "filterPopular": "Popular",
+  "filterNewest": "Newest",
+  "filterCustomerReview": "Customer review",
+  "filterPriceLowestToHigh": "Price: Lowest to high",
+  "filterPriceHightestToLow": "Price: Hightest to low"
 }

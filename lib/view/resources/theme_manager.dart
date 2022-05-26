@@ -13,28 +13,24 @@ class Styles {
         scaffoldBackgroundColor: isDarkTheme
             ? ColorManager.darkPrimary
             : ColorManager.whiteBackground,
-        //OpScafford
-        textSelectionHandleColor:
-            isDarkTheme ? ColorManager.whiteBackground : ColorManager.black,
-        primaryColor: isDarkTheme ? Colors.black : ColorManager.primary,
+        primaryColor: isDarkTheme ? ColorManager.darkPrimary : ColorManager.primary,
         unselectedWidgetColor:
             isDarkTheme ? ColorManager.whiteBackground : ColorManager.black,
         backgroundColor:
             isDarkTheme ? Colors.grey.shade700 : ColorManager.whiteBackground,
-        indicatorColor: isDarkTheme ? Color(0xff0E1D36) : ColorManager.white,
-        buttonColor: isDarkTheme ? Color(0xff3B3B3B) : ColorManager.primary,
+        indicatorColor: isDarkTheme ? const Color(0xff0E1D36) : ColorManager.white,
         hintColor: isDarkTheme ? Colors.grey.shade300 : ColorManager.grey,
-        hoverColor: isDarkTheme ? Color(0xff3A3A3B) : ColorManager.black,
-        focusColor: isDarkTheme ? Color(0xff0B2512) : ColorManager.black,
+        hoverColor: isDarkTheme ? const Color(0xff3A3A3B) : ColorManager.black,
+        focusColor: isDarkTheme ? const Color(0xff0B2512) : ColorManager.black,
         disabledColor: ColorManager.grey,
-        textSelectionColor: isDarkTheme ? Colors.white : ColorManager.black,
-        cardColor: isDarkTheme ? Color(0xFF151515) : ColorManager.white,
+        //ProductCard
+        cardColor: isDarkTheme ? ColorManager.darkCard : ColorManager.white,
         canvasColor: isDarkTheme ? Colors.red : ColorManager.primary,
         brightness: isDarkTheme ? Brightness.dark : Brightness.light,
         buttonTheme: Theme.of(context).buttonTheme.copyWith(
             colorScheme:
-                isDarkTheme ? ColorScheme.dark() : ColorScheme.light()),
-        accentColor: ColorManager.primary,
+                isDarkTheme ? const ColorScheme.dark() : const ColorScheme.light()),
+
         cardTheme: CardTheme(
             color: ColorManager.white,
             shadowColor: ColorManager.grey,
@@ -50,7 +46,7 @@ class Styles {
                     borderRadius: BorderRadius.circular(AppSize.s12)))),
         appBarTheme: AppBarTheme(
           iconTheme: isDarkTheme
-              ? IconThemeData(color: Colors.black)
+              ? const IconThemeData(color: Colors.black)
               : IconThemeData(color: ColorManager.black),
           backgroundColor: isDarkTheme
               ? ColorManager.whiteBackground
@@ -109,6 +105,6 @@ class Styles {
             borderSide:
                 BorderSide(color: ColorManager.primary, width: AppSize.s1_5),
           ),
-        ));
+        ), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: ColorManager.primary), textSelectionTheme: TextSelectionThemeData(selectionColor: isDarkTheme ? Colors.white : ColorManager.black, selectionHandleColor: isDarkTheme ? ColorManager.whiteBackground : ColorManager.black,));
   }
 }

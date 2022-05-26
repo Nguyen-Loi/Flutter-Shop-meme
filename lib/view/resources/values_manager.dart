@@ -2,6 +2,8 @@ import 'package:sizer/sizer.dart';
 
 class AppSizeWidth {
   static double w2 = 2.0.w;
+  static double w4 = 4.0.w;
+  static double w6 = 6.0.w;
   static double w8 = 8.0.w;
   static double w12 = 12.0.w;
   static double w14 = 14.0.w;
@@ -24,9 +26,10 @@ class AppSizeHeight {
   static double h18 = 18.0.h;
   static double h20 = 20.0.h;
   static double h25 = 25.0.h;
+  static double h30 = 30.0.h;
   static double h27 = 27.0.h;
   static double h40 = 40.0.h;
-  static double hWidgetHome = 45.0.h;
+  static double hWidgetHome = 50.0.h;
 }
 
 class AppSize {

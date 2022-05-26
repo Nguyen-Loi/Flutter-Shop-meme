@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_meme/view/resources/dark_theme_provider.dart';
+import 'package:shop_meme/view/provider/dark_theme_provider.dart';
 import 'package:shop_meme/view/resources/locale_keys.dart';
 import 'package:shop_meme/view/resources/resable_function.dart';
 import 'package:shop_meme/view/resources/routes_manager.dart';

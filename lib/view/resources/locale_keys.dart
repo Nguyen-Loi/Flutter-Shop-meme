@@ -46,5 +46,12 @@ abstract class  LocaleKeys {
   static const descNew = 'descNew';
   static const sold = 'sold';
   static const descSold = 'descSold';
+  static const favorite = 'favorite';
+  static const filters = 'filters';
+  static const filterPopular = 'filterPopular';
+  static const filterNewest = 'filterNewest';
+  static const filterCustomerReview = 'filterCustomerReview';
+  static const filterPriceLowestToHigh = 'filterPriceLowestToHigh';
+  static const filterPriceHightestToLow = 'filterPriceHightestToLow';
 
 }

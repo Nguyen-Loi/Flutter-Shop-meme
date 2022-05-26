@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_meme/model/l10n.dart';
 import 'package:shop_meme/model/product_provider.dart';
+import 'package:shop_meme/view/favorite/favorite.dart';
 import 'package:shop_meme/view/forgot_password/forgot_password.dart';
+import 'package:shop_meme/view/home/home.dart';
 import 'package:shop_meme/view/login/login.dart';
-import 'package:shop_meme/view/resources/dark_theme_provider.dart';
+import 'package:shop_meme/view/provider/dark_theme_provider.dart';
+import 'package:shop_meme/view/provider/setting_provider.dart';
 import 'package:shop_meme/view/resources/routes_manager.dart';
 import 'package:shop_meme/view/resources/theme_manager.dart';
 import 'package:shop_meme/view/widget/bottom_bar.dart';
@@ -54,6 +57,9 @@ class _MyAppState extends State<MyApp> {
             ChangeNotifierProvider(create: (_) =>
              ProductProvider()
             ),
+            ChangeNotifierProvider(create: (_) =>
+             SettingProvider()
+            ),
           ],
           child:
               Consumer<DarkThemeProvider>(builder: (context, themeData, child) {
@@ -65,7 +71,7 @@ class _MyAppState extends State<MyApp> {
               locale: context.locale,
               title: 'Flutter Demo',
               debugShowCheckedModeBanner: false,
-              home: BottomBarScreen(),
+              home: Favorite(),
             );
           }));
     });

@@ -9,7 +9,7 @@ class ColorManager {
   static Color red = HexColor.fromHex("#F01F0E");
   static Color green = HexColor.fromHex("#2AA952");
   static Color whiteCard = HexColor.fromHex("#E4E4E4");
-
+  static Color darkCard = HexColor.fromHex("#2A2C36");
 
   //Widget
   static Color yellow = Colors.yellow;

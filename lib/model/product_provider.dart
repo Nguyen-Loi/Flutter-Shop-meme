@@ -20,7 +20,7 @@ class ProductProvider with ChangeNotifier {
         numberRating: 4,
         imageUrl:
             'https://images-na.ssl-images-amazon.com/images/I/51ME-ADMjRL._AC_SL1000_.jpg',
-        discountPrice: 0,
+        discountPrice: 12,
         description:
             'Samsung Galaxy A10s A107M - 32GB, 6.2" HD+ Infinity-V Display, 13MP+2MP Dual Rear +8MP Front Cameras, GSM Unlocked Smartphone - Blue.'),
     Product(
@@ -42,7 +42,7 @@ class ProductProvider with ChangeNotifier {
             'https://images-na.ssl-images-amazon.com/images/I/81%2Bh9mpyQmL._AC_SL1500_.jpg',
         description:
             'Samsung Galaxy S9 G960U 64GB Unlocked GSM 4G LTE Phone w/ 12MP Camera - Midnight Black',
-        discountPrice: 0),
+        discountPrice: 50),
     Product(
         id: '5',
         price: 12000000,

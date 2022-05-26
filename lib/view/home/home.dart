@@ -2,13 +2,14 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_meme/app/enum_option.dart';
 import 'package:shop_meme/model/product_provider.dart';
+import 'package:shop_meme/view/resources/color_manager.dart';
 import 'package:shop_meme/view/resources/locale_keys.dart';
 import 'package:shop_meme/view/resources/values_manager.dart';
-import 'package:shop_meme/view/widget/new_product_home.dart';
+import 'package:shop_meme/view/widget/card_product.dart';
 import 'package:shop_meme/view/widget/title_desc_home.dart';
-import 'package:shop_meme/view/widget/top_sale_home.dart';
-import 'package:shop_meme/view/widget/top_sold_home.dart';
+
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -95,11 +96,11 @@ var size = MediaQuery.of(context).size;
                     itemBuilder: (context, index) {
                       return ChangeNotifierProvider.value(
                           value: productsData[index],
-                          child: TopSaleHome(),
+                          child: CardProduct(),
                           );
                     }),
               ),
-              //*News
+              //*New product
               TitleDescHome(
                 title: LocaleKeys.neww,
                 desTitle: LocaleKeys.descNew,
@@ -114,7 +115,7 @@ var size = MediaQuery.of(context).size;
                     itemBuilder: (context, index) {
                       return ChangeNotifierProvider.value(
                           value: productsData[index],
-                          child: NewProductHome(),
+                          child: CardProduct(colour: ColorManager.darkPrimary, typeProduct: TypeLogoProduct.neww),
                           );
                     }),
               ),
@@ -127,8 +128,7 @@ var size = MediaQuery.of(context).size;
                   itemCount: productsData.length,
                   shrinkWrap: true,
                   
-                physics: new NeverScrollableScrollPhysics(),
-                  //  controller: new ScrollController(keepScrollOffset: false),
+                physics: new NeverScrollableScrollPhysics(),              
                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(  
                  childAspectRatio: (itemWidth / itemHeight),
                     crossAxisCount: 2,  
@@ -137,7 +137,7 @@ var size = MediaQuery.of(context).size;
                 ),  
                 itemBuilder: (context, index){
                   return ChangeNotifierProvider.value(value: productsData[index],
-                   child: TopSoledHome(),
+                   child: CardProduct(typeProduct: TypeLogoProduct.hot, titleLength: 26,),
                   );
                 },
                 ),
