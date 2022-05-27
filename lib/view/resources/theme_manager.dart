@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_meme/view/resources/color_manager.dart';
 import 'package:shop_meme/view/resources/font_manager.dart';
@@ -13,12 +12,14 @@ class Styles {
         scaffoldBackgroundColor: isDarkTheme
             ? ColorManager.darkPrimary
             : ColorManager.whiteBackground,
-        primaryColor: isDarkTheme ? ColorManager.darkPrimary : ColorManager.primary,
+        primaryColor:
+            isDarkTheme ? ColorManager.darkPrimary : ColorManager.primary,
         unselectedWidgetColor:
             isDarkTheme ? ColorManager.whiteBackground : ColorManager.black,
         backgroundColor:
             isDarkTheme ? Colors.grey.shade700 : ColorManager.whiteBackground,
-        indicatorColor: isDarkTheme ? const Color(0xff0E1D36) : ColorManager.white,
+        indicatorColor:
+            isDarkTheme ? const Color(0xff0E1D36) : ColorManager.white,
         hintColor: isDarkTheme ? Colors.grey.shade300 : ColorManager.grey,
         hoverColor: isDarkTheme ? const Color(0xff3A3A3B) : ColorManager.black,
         focusColor: isDarkTheme ? const Color(0xff0B2512) : ColorManager.black,
@@ -28,9 +29,9 @@ class Styles {
         canvasColor: isDarkTheme ? Colors.red : ColorManager.primary,
         brightness: isDarkTheme ? Brightness.dark : Brightness.light,
         buttonTheme: Theme.of(context).buttonTheme.copyWith(
-            colorScheme:
-                isDarkTheme ? const ColorScheme.dark() : const ColorScheme.light()),
-
+            colorScheme: isDarkTheme
+                ? const ColorScheme.dark()
+                : const ColorScheme.light()),
         cardTheme: CardTheme(
             color: ColorManager.white,
             shadowColor: ColorManager.grey,
@@ -57,24 +58,24 @@ class Styles {
         ),
         // Text theme
         textTheme: TextTheme(
-            headline1: getSemiBoldStyle(
-                color: ColorManager.black, fontSize: FontSize.s26),
-            headline2: getSemiBoldStyle(
-                color: ColorManager.black, fontSize: FontSize.s22),
+            headline1:
+                getSemiBoldStyle(color: ColorManager.black, fontSize: 26.0.sp),
+            headline2:
+                getSemiBoldStyle(color: ColorManager.black, fontSize: 21.0.sp),
             //Product home name
-            headline3: getSemiBoldStyle(
-                color: ColorManager.black, fontSize: FontSize.s14),
+            headline3:
+                getSemiBoldStyle(color: ColorManager.black, fontSize: 14.0.sp),
             //Price
-            headline4: getSemiBoldStyle(
-                color: ColorManager.red, fontSize: FontSize.s14),
+            headline4:
+                getSemiBoldStyle(color: ColorManager.red, fontSize: 14.0.sp),
             //Discount price
             headline5: getSemiBoldStyle(
-                color: ColorManager.whiteBackground, fontSize: FontSize.s12),
-            subtitle1: getMediumStyle(
-                color: ColorManager.black, fontSize: FontSize.s14),
-            subtitle2: getMediumStyle(
-                color: ColorManager.white, fontSize: FontSize.s14),
-            //Description price
+                color: ColorManager.whiteBackground, fontSize: 12.0.sp),
+            subtitle1:
+                getMediumStyle(color: ColorManager.black, fontSize: 12.0.sp),
+            subtitle2:
+                getMediumStyle(color: ColorManager.black, fontSize: 14.0.sp),
+            //Description pricez
 
             // bodyText1: getMediumStyle(color: ColorManager.green),
             // caption: getRegularStyle(color: ColorManager.grey1),
@@ -105,6 +106,13 @@ class Styles {
             borderSide:
                 BorderSide(color: ColorManager.primary, width: AppSize.s1_5),
           ),
-        ), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: ColorManager.primary), textSelectionTheme: TextSelectionThemeData(selectionColor: isDarkTheme ? Colors.white : ColorManager.black, selectionHandleColor: isDarkTheme ? ColorManager.whiteBackground : ColorManager.black,));
+        ),
+        colorScheme:
+            ColorScheme.fromSwatch().copyWith(secondary: ColorManager.primary),
+        textSelectionTheme: TextSelectionThemeData(
+          selectionColor: isDarkTheme ? Colors.white : ColorManager.black,
+          selectionHandleColor:
+              isDarkTheme ? ColorManager.whiteBackground : ColorManager.black,
+        ));
   }
 }

@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
-
 import 'package:shop_meme/app/enum_option.dart';
 import 'package:shop_meme/app/extension.dart';
 import 'package:shop_meme/model/product.dart';
@@ -15,17 +14,19 @@ class CardProduct extends StatelessWidget {
   TypeLogoProduct typeProduct = TypeLogoProduct.discount;
   Color? colour;
   int? titleLength;
-  CardProduct({
-    Key? key,
-    this.typeProduct = TypeLogoProduct.discount,
-    this.colour = const Color(0xffDB3022),
-    this.titleLength = 13
-  }) : super(key: key);
+  CardProduct(
+      {Key? key,
+      this.typeProduct = TypeLogoProduct.discount,
+      this.colour = const Color(0xffDB3022),
+      this.titleLength = 13})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     final productModel = Provider.of<Product>(context);
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 6,
+      ),
       child: Stack(
         children: [
           Column(
@@ -43,8 +44,8 @@ class CardProduct extends StatelessWidget {
                         alignment: Alignment.center,
                         child: Image(
                           image: NetworkImage(productModel.imageUrl),
-                          height: AppSizeHeight.h30,
-                          width: AppSizeWidth.w25,
+                          height: AppSizeHeight.h28,
+                          width: AppSizeWidth.w23,
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -81,9 +82,10 @@ class CardProduct extends StatelessWidget {
               productModel.discountPrice != 0
                   ? Text(
                       productModel.price.toVND(),
-                      style: TextStyle(decoration: TextDecoration.lineThrough),
+                      style: const TextStyle(
+                          decoration: TextDecoration.lineThrough),
                     )
-                  : SizedBox(),
+                  : const SizedBox(),
               Text(
                   ValidDator.caculateDiscount(
                           price: productModel.price,
@@ -94,7 +96,7 @@ class CardProduct extends StatelessWidget {
           ),
           Positioned(
             right: 0,
-            top: AppSizeHeight.h30 + 5,
+            top: AppSizeHeight.h28 + 4,
             child: GestureDetector(
               onTap: () {},
               child: Container(
@@ -108,8 +110,7 @@ class CardProduct extends StatelessWidget {
                           color: ColorManager.grey,
                           blurRadius: 2.0,
                           spreadRadius: 0.0,
-                          offset: Offset(
-                              2.0, 2.0), 
+                          offset: const Offset(2.0, 2.0),
                         )
                       ]),
                   child: productModel.isFavorite == true
@@ -125,8 +126,8 @@ class CardProduct extends StatelessWidget {
           ), //Logo hint
           typeProduct == TypeLogoProduct.discount &&
                   productModel.discountPrice == 0
-              ?
-              Text(''):Positioned(
+              ? const Text('')
+              : Positioned(
                   child: Container(
                       alignment: Alignment.center,
                       decoration: BoxDecoration(

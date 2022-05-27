@@ -53,5 +53,6 @@ abstract class  LocaleKeys {
   static const filterCustomerReview = 'filterCustomerReview';
   static const filterPriceLowestToHigh = 'filterPriceLowestToHigh';
   static const filterPriceHightestToLow = 'filterPriceHightestToLow';
+  static const sortBy = 'sortBy';
 
 }

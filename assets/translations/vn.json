@@ -46,10 +46,11 @@
   "sold": "Mua nhiều nhất",
   "descSold": "Những sản phẩm được ủng hộ nhiều nhất",
   "favorite": "Yêu thích",
-  "filters": "Filters",
+  "filters": "Lọc",
   "filterPopular": "Phổ biến",
   "filterNewest": "Mới nhất",
   "filterCustomerReview": "Khách hàng bình luận",
   "filterPriceLowestToHigh": "Theo giá từ thấp đến cao",
-  "filterPriceHightestToLow": "Theo giá từ cao đến thấp"
+  "filterPriceHightestToLow": "Theo giá từ cao đến thấp",
+  "sortBy": "Sắp xếp theo"
 }
