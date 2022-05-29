@@ -59,22 +59,25 @@ class Styles {
         // Text theme
         textTheme: TextTheme(
             headline1:
-                getSemiBoldStyle(color: ColorManager.black, fontSize: 26.0.sp),
+                getSemiBoldStyle(color: ColorManager.black, fontSize: FontSize.s26),
             headline2:
-                getSemiBoldStyle(color: ColorManager.black, fontSize: 21.0.sp),
+                getSemiBoldStyle(color: ColorManager.black, fontSize: FontSize.s22),
             //Product home name
             headline3:
-                getSemiBoldStyle(color: ColorManager.black, fontSize: 14.0.sp),
+                getSemiBoldStyle(color: ColorManager.black, fontSize: FontSize.s14),
             //Price
             headline4:
-                getSemiBoldStyle(color: ColorManager.red, fontSize: 14.0.sp),
+                getSemiBoldStyle(color: ColorManager.red, fontSize: FontSize.s14),
             //Discount price
             headline5: getSemiBoldStyle(
-                color: ColorManager.whiteBackground, fontSize: 12.0.sp),
+                color: ColorManager.whiteBackground, fontSize: FontSize.s12),
             subtitle1:
-                getMediumStyle(color: ColorManager.black, fontSize: 12.0.sp),
+                getMediumStyle(color: ColorManager.black, fontSize: FontSize.s12),
+                //Discount prie
             subtitle2:
-                getMediumStyle(color: ColorManager.black, fontSize: 14.0.sp),
+                getMediumStyle(color: ColorManager.white, fontSize: FontSize.s14),
+                //Title modelBottomSheet
+                headline6:  getMediumStyle(color: ColorManager.black, fontSize: FontSize.s14),
             //Description pricez
 
             // bodyText1: getMediumStyle(color: ColorManager.green),
@@ -107,8 +110,7 @@ class Styles {
                 BorderSide(color: ColorManager.primary, width: AppSize.s1_5),
           ),
         ),
-        colorScheme:
-            ColorScheme.fromSwatch().copyWith(secondary: ColorManager.primary),
+
         textSelectionTheme: TextSelectionThemeData(
           selectionColor: isDarkTheme ? Colors.white : ColorManager.black,
           selectionHandleColor:

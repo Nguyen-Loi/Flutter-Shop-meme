@@ -6,10 +6,10 @@ import 'package:shop_meme/view/resources/locale_keys.dart';
 import 'package:shop_meme/view/resources/values_manager.dart';
 
 class BottomFilterByProduct extends StatelessWidget {
-  final String? textSelected;
+  final String textSelected;
   BottomFilterByProduct({
     Key? key,
-    this.textSelected,
+    required this.textSelected,
   }) : super(key: key);
 
   @override
@@ -28,39 +28,43 @@ class BottomFilterByProduct extends StatelessWidget {
               style: Theme.of(context).textTheme.headline3),
           //*Popular
           FilterItem(
-              title: LocaleKeys.filterPopular,
+              title: LocaleKeys.filterPopular.tr(),
               onPressed: () {
                 Navigator.pop(context, LocaleKeys.filterPopular.tr());
               },
-              //*Newest
-              titleCheck: textSelected!),
+              titleCheck: textSelected),
+          //*Newest
+
           FilterItem(
-              title: LocaleKeys.filterNewest,
+              title: LocaleKeys.filterNewest.tr(),
               onPressed: () {
                 Navigator.pop(context, LocaleKeys.filterNewest.tr());
               },
-              //*Customer review
-              titleCheck: textSelected!),
+              titleCheck: textSelected),
+          //*Customer review
+
           FilterItem(
-              title: LocaleKeys.filterCustomerReview,
+              title: LocaleKeys.filterCustomerReview.tr(),
               onPressed: () {
                 Navigator.pop(context, LocaleKeys.filterCustomerReview.tr());
               },
-              //*Lowest to high
-              titleCheck: textSelected!),
+              titleCheck: textSelected),
+          //*Lowest to high
+
           FilterItem(
-              title: LocaleKeys.filterPriceLowestToHigh,
+              title: LocaleKeys.filterPriceLowestToHigh.tr(),
               onPressed: () {
                 Navigator.pop(context, LocaleKeys.filterPriceLowestToHigh.tr());
               },
-              titleCheck: textSelected!),
+              titleCheck: textSelected),
           //*Highest to low
           FilterItem(
-              title: LocaleKeys.filterPriceHightestToLow,
+              title: LocaleKeys.filterPriceHightestToLow.tr(),
               onPressed: () {
-                Navigator.pop(context, LocaleKeys.filterPriceHightestToLow.tr());
+                Navigator.pop(
+                    context, LocaleKeys.filterPriceHightestToLow.tr());
               },
-              titleCheck: textSelected!)
+              titleCheck: textSelected),
         ],
       ),
     );
@@ -91,7 +95,7 @@ class FilterItem extends StatelessWidget {
             onPressed: onPressed,
             child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text('   ' + title.tr(),
-                    style: Theme.of(context).textTheme.subtitle2))));
+                child: Text('   ' + title,
+                    style: Theme.of(context).textTheme.headline6))));
   }
 }

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_meme/view/resources/preferences/dark_theme_preferences.dart';
 
-class DarkThemeProvider with ChangeNotifier{
+class   DarkThemeProvider with ChangeNotifier{
  DarkThemePreferences darkThemePreferences = DarkThemePreferences();
   bool _darkTheme = false ;
   bool get darkTheme=>_darkTheme;

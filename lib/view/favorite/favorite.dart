@@ -1,10 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:provider/provider.dart';
 
 import 'package:shop_meme/app/enum_option.dart';
 import 'package:shop_meme/model/product_provider.dart';
+import 'package:shop_meme/view/provider/dark_theme_provider.dart';
 import 'package:shop_meme/view/provider/setting_provider.dart';
 import 'package:shop_meme/view/resources/locale_keys.dart';
 import 'package:shop_meme/view/resources/preferences/setting_preferences.dart';
@@ -14,43 +16,22 @@ import 'package:shop_meme/view/widget/card_product.dart';
 import 'package:shop_meme/view/widget/card_product2.dart';
 
 class Favorite extends StatefulWidget {
-
   @override
   State<Favorite> createState() => _FavoriteState();
 }
 
 class _FavoriteState extends State<Favorite> {
-  String filterTitle = LocaleKeys.filterPopular.tr();
-  Future<void> _navigateAndDisplaySelection(BuildContext context) async {
-    // Navigator.push returns a Future that completes after calling
-    // Navigator.pop on the Selection Screen.
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) =>  BottomFilterByProduct(textSelected: filterTitle,)),
-    );
-
-    // After the Selection Screen returns a result, hide any previous snackbars
-    // and show the new result.
-    ScaffoldMessenger.of(context)
-      ..removeCurrentSnackBar()
-      ..showSnackBar(SnackBar(content: Text('$result')));
-  }
-
   @override
   Widget build(BuildContext context) {
     final _statusOptionProduct = Provider.of<SettingProvider>(context);
-
+    
     final productsData = Provider.of<ProductProvider>(context).getProduct;
-
-    var size = MediaQuery.of(context).size;
-    final double itemHeight = (size.height) / 2;
-    final double itemWidth = size.width / 2;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          LocaleKeys.favorite,
+          LocaleKeys.favorite.tr(),
           style: Theme.of(context).textTheme.headline2,
-        ).tr(),
+        ),
         centerTitle: true,
         actions: [
           Padding(
@@ -75,7 +56,7 @@ class _FavoriteState extends State<Favorite> {
                     color: Colors.grey.withOpacity(.5),
                     blurRadius: 10.0, // soften the shadow
                     spreadRadius: 0.0, //extend the shadow
-                    offset: Offset(
+                    offset: const Offset(
                       5.0, // Move to right 10  horizontally
                       5.0, // Move to bottom 10 Vertically
                     ),
@@ -104,12 +85,14 @@ class _FavoriteState extends State<Favorite> {
                     child: GestureDetector(
                       onTap: () {
                         showModalBottomSheet(
-                                context: context,
-                                backgroundColor: Colors.transparent,
-                                builder: (context) => BottomFilterByProduct(
-                                      textSelected: filterTitle,
-                                    )).then((value) => filterTitle=value)
-                            .whenComplete(() => print(filterTitle));
+                            context: context,
+                            backgroundColor: Colors.transparent,
+                            builder: (context) => BottomFilterByProduct(
+                                  textSelected:
+                                      _statusOptionProduct.selectedFilter,
+                                )).then((value) {
+                          _statusOptionProduct.setSelectedFilter(value);
+                        }).whenComplete(() {});
                       },
                       child: Row(
                         children: [
@@ -117,7 +100,7 @@ class _FavoriteState extends State<Favorite> {
                               color:
                                   Theme.of(context).textSelectionHandleColor),
                           Text(
-                            '  ' + filterTitle,
+                            '  ' + _statusOptionProduct.selectedFilter,
                             style: Theme.of(context).textTheme.subtitle1,
                           )
                         ],
@@ -127,14 +110,13 @@ class _FavoriteState extends State<Favorite> {
                 Flexible(
                     flex: 1,
                     child: GestureDetector(
-                      onTap: () async {
-                        _statusOptionProduct.setStatusOptionProduct =
-                            !_statusOptionProduct.getStatusOptionProduct;
+                      onTap: () {
+                       
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          _statusOptionProduct.getStatusOptionProduct
+                          _statusOptionProduct.typeProduct
                               ? Icon(Icons.view_list,
                                   color: Theme.of(context)
                                       .textSelectionHandleColor)
@@ -148,14 +130,15 @@ class _FavoriteState extends State<Favorite> {
             ),
           ),
           //*FetchData
-          _statusOptionProduct.getStatusOptionProduct
+          _statusOptionProduct.typeProduct
               ? Expanded(
                   child: SingleChildScrollView(
                     padding: EdgeInsets.all(AppSize.s12),
                     child: GridView.builder(
                       itemCount: productsData.length,
                       shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         childAspectRatio: 240 / 470,
                         crossAxisCount: 2,
                         crossAxisSpacing: 15.0,

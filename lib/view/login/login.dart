@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_meme/view/provider/dark_theme_provider.dart';
 import 'package:shop_meme/view/resources/locale_keys.dart';
@@ -92,8 +93,8 @@ class _LoginState extends State<Login> {
                               keyboardType: TextInputType.emailAddress,
                               focusNode: _passwordFocusNode,
                               obscureText: true,
-                              decoration: const InputDecoration(
-                                  labelText: LocaleKeys.password),
+                              decoration:  InputDecoration(
+                                  labelText: LocaleKeys.password.tr()),
                               onSaved: (d) => _password = d!),
                         ),
                         GestureDetector(
@@ -131,7 +132,13 @@ class _LoginState extends State<Login> {
             Flexible(
                 flex: 3,
                 child: SignInSocialBottom(
-                    onPressedGoogle: () {}, onPressedFacebook: () {})),
+                    onPressedGoogle: () {
+                       context.locale = Locale('en');
+                        Phoenix.rebirth(context);
+                    }, onPressedFacebook: () {
+                       context.locale = Locale('vi');
+                        Phoenix.rebirth(context);
+                    })),
           ],
         ),
       ),

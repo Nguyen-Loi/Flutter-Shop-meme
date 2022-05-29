@@ -33,15 +33,22 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   DarkThemeProvider themeChangeProvider = DarkThemeProvider();
+  SettingProvider _statusOptionProduct = SettingProvider();
 
   void getCurrentAppTheme() async {
     themeChangeProvider.darkTheme =
         await themeChangeProvider.darkThemePreferences.getTheme();
   }
 
+  void getCurrentTypeProduct() async {
+    _statusOptionProduct.typeProduct =
+        await _statusOptionProduct.settingPrefences.getTypeProduct();
+  }
+
   @override
   void initState() {
     getCurrentAppTheme();
+    getCurrentTypeProduct();
     super.initState();
   }
 
@@ -51,15 +58,9 @@ class _MyAppState extends State<MyApp> {
     return Sizer(builder: (context, orientation, deviceType) {
       return MultiProvider(
           providers: [
-            ChangeNotifierProvider(create: (_) =>
-             themeChangeProvider
-            ),
-            ChangeNotifierProvider(create: (_) =>
-             ProductProvider()
-            ),
-            ChangeNotifierProvider(create: (_) =>
-             SettingProvider()
-            ),
+            ChangeNotifierProvider(create: (_) => themeChangeProvider),
+            ChangeNotifierProvider(create: (_) => ProductProvider()),
+            ChangeNotifierProvider(create: (_) => SettingProvider()),
           ],
           child:
               Consumer<DarkThemeProvider>(builder: (context, themeData, child) {
