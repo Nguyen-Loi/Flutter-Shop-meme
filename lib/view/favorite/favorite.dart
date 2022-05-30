@@ -1,15 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
+
 import 'package:provider/provider.dart';
 
 import 'package:shop_meme/app/enum_option.dart';
 import 'package:shop_meme/model/product_provider.dart';
-import 'package:shop_meme/view/provider/dark_theme_provider.dart';
 import 'package:shop_meme/view/provider/setting_provider.dart';
 import 'package:shop_meme/view/resources/locale_keys.dart';
-import 'package:shop_meme/view/resources/preferences/setting_preferences.dart';
 import 'package:shop_meme/view/resources/values_manager.dart';
 import 'package:shop_meme/view/widget/bottom_fliter_product.dart';
 import 'package:shop_meme/view/widget/card_product.dart';
@@ -23,8 +20,9 @@ class Favorite extends StatefulWidget {
 class _FavoriteState extends State<Favorite> {
   @override
   Widget build(BuildContext context) {
-    final _statusOptionProduct = Provider.of<SettingProvider>(context);
-    
+    final _settingProvider = Provider.of<SettingProvider>(context);
+    _settingProvider.loadTypeProduct;
+
     final productsData = Provider.of<ProductProvider>(context).getProduct;
     return Scaffold(
       appBar: AppBar(
@@ -88,10 +86,9 @@ class _FavoriteState extends State<Favorite> {
                             context: context,
                             backgroundColor: Colors.transparent,
                             builder: (context) => BottomFilterByProduct(
-                                  textSelected:
-                                      _statusOptionProduct.selectedFilter,
+                                  textSelected: _settingProvider.selectedFilter,
                                 )).then((value) {
-                          _statusOptionProduct.setSelectedFilter(value);
+                          _settingProvider.setSelectedFilter(value);
                         }).whenComplete(() {});
                       },
                       child: Row(
@@ -100,7 +97,7 @@ class _FavoriteState extends State<Favorite> {
                               color:
                                   Theme.of(context).textSelectionHandleColor),
                           Text(
-                            '  ' + _statusOptionProduct.selectedFilter,
+                            '  ' + _settingProvider.selectedFilter,
                             style: Theme.of(context).textTheme.subtitle1,
                           )
                         ],
@@ -111,12 +108,12 @@ class _FavoriteState extends State<Favorite> {
                     flex: 1,
                     child: GestureDetector(
                       onTap: () {
-                       
+                        _settingProvider.toggleTypeProduct();
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          _statusOptionProduct.typeProduct
+                          _settingProvider.typeProduct
                               ? Icon(Icons.view_list,
                                   color: Theme.of(context)
                                       .textSelectionHandleColor)
@@ -130,12 +127,13 @@ class _FavoriteState extends State<Favorite> {
             ),
           ),
           //*FetchData
-          _statusOptionProduct.typeProduct
+          _settingProvider.typeProduct
               ? Expanded(
                   child: SingleChildScrollView(
                     padding: EdgeInsets.all(AppSize.s12),
                     child: GridView.builder(
                       itemCount: productsData.length,
+                        physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(

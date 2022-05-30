@@ -5,11 +5,11 @@ class SettingPrefences {
 
   setTypeProduct(bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('123', value);
+    prefs.setBool(STATUS_DISPLAY_PRODUCT, value);
   }
 
-  Future  getTypeProduct() async {
+   getTypeProduct() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('123');
+    return prefs.getBool(STATUS_DISPLAY_PRODUCT)??false;
   }
 }

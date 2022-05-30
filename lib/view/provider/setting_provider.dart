@@ -5,14 +5,26 @@ import 'package:easy_localization/easy_localization.dart';
 
 class SettingProvider with ChangeNotifier {
   SettingPrefences settingPrefences = SettingPrefences();
-  bool _typeProduct=true ;
+  bool _typeProduct = true;
 
-  bool get typeProduct =>_typeProduct;
+  bool get typeProduct => _typeProduct;
 
   set typeProduct(bool newTypeProduct) {
     _typeProduct = newTypeProduct;
     settingPrefences.setTypeProduct(newTypeProduct);
     notifyListeners();
+  }
+
+  toggleTypeProduct() {
+    _typeProduct = !_typeProduct;
+    settingPrefences.setTypeProduct(_typeProduct);
+    notifyListeners();
+  }
+
+   Future<bool> get loadTypeProduct async {
+    _typeProduct = await settingPrefences.getTypeProduct();
+    notifyListeners();
+    return _typeProduct;
   }
 
   //Handle filter

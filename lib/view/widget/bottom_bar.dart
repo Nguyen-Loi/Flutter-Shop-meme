@@ -4,7 +4,6 @@ import 'package:shop_meme/view/cart/cart.dart';
 import 'package:shop_meme/view/favorite/favorite.dart';
 import 'package:shop_meme/view/home/home.dart';
 import 'package:shop_meme/view/profile/profile.dart';
-import 'package:shop_meme/view/resources/color_manager.dart';
 
 class BottomBarScreen extends StatefulWidget {
   @override

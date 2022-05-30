@@ -12,6 +12,7 @@ class CardProduct2 extends StatelessWidget {
   Widget build(BuildContext context) {
     final productModel = Provider.of<Product>(context);
     return Container(
+      height: MediaQuery.of(context).size.height/5,
       decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(15),
@@ -24,6 +25,7 @@ class CardProduct2 extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: Container(
+                  height: MediaQuery.of(context).size.height/5,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     color: ColorManager.whiteCard,
@@ -32,8 +34,8 @@ class CardProduct2 extends StatelessWidget {
                   child: Image(
                     image: NetworkImage(productModel.imageUrl),
                     fit: BoxFit.fill,
-                    width: AppSizeWidth.w16,
-                    height: AppSizeWidth.w20,
+                    width: AppSizeWidth.w18,
+                    height: AppSizeWidth.w23,
                   ),
                 ),
               ),
@@ -44,7 +46,9 @@ class CardProduct2 extends StatelessWidget {
                 flex: 3,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    SizedBox(height: 8,),
                     Text(
                       ValidDator.convertProductName(
                           length: 40, nameProduct: productModel.title),
@@ -52,7 +56,9 @@ class CardProduct2 extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                     ),
-                    SizedBox(height: AppSizeHeight.h2,),
+                    SizedBox(
+                      height: AppSizeHeight.h2,
+                    ),
                     Row(
                       children: [
                         Text(
@@ -74,7 +80,9 @@ class CardProduct2 extends StatelessWidget {
                             : SizedBox(),
                       ],
                     ),
-                    SizedBox(height: AppSizeHeight.h4,),
+                    SizedBox(
+                      height: AppSizeHeight.h4,
+                    ),
                     Row(
                       children: [
                         RatingBar.builder(
@@ -94,7 +102,8 @@ class CardProduct2 extends StatelessWidget {
                         ),
                         Text(' (${productModel.numberRating})')
                       ],
-                    )
+                    ),
+                     SizedBox(height: 4,),
                   ],
                 ),
               )
@@ -102,10 +111,32 @@ class CardProduct2 extends StatelessWidget {
           ),
           //*Remove favorite
           Positioned(
-            right: 3,
-            top: 3,
-            child: GestureDetector(onTap: (){},
-          child:   Icon(Icons.close, color: ColorManager.grey,),))
+              right: 3,
+              top: 3,
+              child: GestureDetector(
+                onTap: () {},
+                child: Icon(
+                  Icons.close,
+                  color: ColorManager.grey,
+                ),
+              )),
+          //*Discount
+          productModel.discountPrice == 0
+              ? const Text('')
+              : Positioned(
+                  child: Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: ColorManager.primary,
+                      ),
+                      width: AppSize.s50,
+                      height: AppSize.s25,
+                      child: Text(
+                        '-${productModel.discountPrice}%',
+                        style: Theme.of(context).textTheme.subtitle2,
+                      )),
+                )
         ],
       ),
     );
